@@ -13,16 +13,16 @@ HOMEPAGE="https://github.com/z00m128/sjasmplus/"
 SRC_URI=""
 
 EGIT_REPO_URI="https://github.com/z00m128/sjasmplus.git"
-EGIT_BRANCH="devel"
+EGIT_BRANCH="master"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="+lua +system_lua"
+IUSE="lua +system-lua"
 
 DEPEND="
-	>=dev-util/cmake-2.8.12
-	system_lua? ( ( >=dev-lang/lua-5.1.5 >=dev-lua/toluapp-1.0.93 ) )
+	>=dev-util/cmake-3.1.0
+	system-lua? ( ( >=dev-lang/lua-5.1.5 >=dev-lua/toluapp-1.0.93 ) )
 "
 RDEPEND="${DEPEND}"
 
@@ -32,8 +32,8 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_enable lua LUA
-		cmake-utils_use_enable system_lua SYSTEM_LUA)
+		$(cmake-utils_use_enable lua LUA)
+		$(cmake-utils_use system-lua SYSTEM_LUA)
 	)
 	cmake-utils_src_configure
 }
