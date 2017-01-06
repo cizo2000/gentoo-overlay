@@ -15,12 +15,12 @@ SRC_URI="https://github.com/z00m128/sjasmplus/archive/v${PV}.tar.gz -> ${P}.tar.
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="-* amd64 x86"
-IUSE="lua"
+IUSE="lua +system-lua"
 RESTRICT="mirror"
 
 DEPEND="
 	>=dev-util/cmake-3.1.0
-	lua? ( ( >=dev-lang/lua-5.1.5 >=dev-lua/toluapp-1.0.93 ) )
+	system-lua? ( ( >=dev-lang/lua-5.1.5 >=dev-lua/toluapp-1.0.93 ) )
 "
 RDEPEND="${DEPEND}"
 
@@ -31,6 +31,7 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_enable lua LUA)
+		$(cmake-utils_use system-lua SYSTEM_LUA)
 	)
 	cmake-utils_src_configure
 }
