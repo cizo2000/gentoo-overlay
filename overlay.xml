@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<repositories version="1.0">
-<repo priority="50" status="unofficial">
+<!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
+<repositories xmlns="" version="1.0">
+  <repo quality="experimental" priority="50" status="unofficial">
     <name>cizo2000</name>
-    <description>Cizo2000 profile and Packages</description>
+    <description>Experimental ebuilds from cizo2000</description>
     <homepage>https://github.com/cizo2000/gentoo-overlay</homepage>
     <owner>
-        <email>cizo2000@gmail.com</email>
-        <name>Cizo2000</name>
+      <email>cizo2000@gmail.com</email>
+      <name>Cizo2000</name>
     </owner>
     <source type="git">git://github.com/cizo2000/gentoo-overlay.git</source>
+    <source type="git">https://github.com/cizo2000/gentoo-overlay.git</source>
     <feed>https://github.com/cizo2000/gentoo-overlay/commits/master.atom</feed>
-</repo>
+  </repo>
 </repositories>
