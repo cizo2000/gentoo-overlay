@@ -8,7 +8,7 @@
         <email>cizo2000@gmail.com</email>
         <name>Cizo2000</name>
     </owner>
-    <source type="git">https://github.com/cizo2000/gentoo-overlay.git</source>
+    <source type="git">git://github.com/cizo2000/gentoo-overlay.git</source>
     <feed>https://github.com/cizo2000/gentoo-overlay/commits/master.atom</feed>
 </repo>
 </repositories>
