@@ -18,7 +18,7 @@ EGIT_BRANCH="devel"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="lua system_lua"
+IUSE="+lua +system_lua"
 
 DEPEND="
 	>=dev-util/cmake-2.8.12
