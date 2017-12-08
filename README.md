@@ -11,7 +11,7 @@ The following packages are available in this overlay:
 
 This overlay is not official and it is not available in layman's repository.
 
-**Use ebuilds supplied in this repository on your own risk**. They've been tested on my own system setup (~amd64) and (most likely) tested on virtual systems (amd64 and x86).
+**Use ebuilds supplied in this repository on your own risk**. They've been tested on my own system setup (~amd64).
 
 ## Installing
 
