@@ -20,6 +20,6 @@ S="${WORKDIR}/predis-${PV}"
 
 src_install() {
 	insinto "/usr/share/php/Predis/"
-	doins -r . "${FILESDIR}"/autoload.php
+	doins -r src/*
 	dodoc README.md
 }
