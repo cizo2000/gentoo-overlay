@@ -15,7 +15,7 @@ SRC_URI="https://github.com/z00m128/sjasmplus/archive/v${PV}.tar.gz -> ${P}.tar.
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="-* amd64 x86"
-IUSE="lua +system-lua"
+IUSE="+lua +system-lua"
 RESTRICT="mirror"
 
 DEPEND="
