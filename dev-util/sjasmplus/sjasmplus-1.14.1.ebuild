@@ -12,7 +12,7 @@ DESCRIPTION="sjasmplus - Command-line cross-compiler of assembly language for Z8
 HOMEPAGE="https://github.com/z00m128/sjasmplus/"
 SRC_URI="https://github.com/z00m128/sjasmplus/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="GPL-2"
+LICENSE="BSD-3-Clause"
 SLOT="0"
 KEYWORDS="-* amd64 x86"
 IUSE="+lua +system-lua"

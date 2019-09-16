@@ -15,7 +15,7 @@ SRC_URI=""
 EGIT_REPO_URI="https://github.com/z00m128/sjasmplus.git"
 EGIT_BRANCH="master"
 
-LICENSE="GPL-2"
+LICENSE="BSD-3-Clause"
 SLOT="0"
 KEYWORDS=""
 IUSE="+lua +system-lua"
