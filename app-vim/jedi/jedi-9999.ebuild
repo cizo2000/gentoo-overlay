@@ -1,26 +1,30 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=5
-PYTHON_COMPAT=(python{2_7,3_4})
-inherit vim-plugin git-2 python-r1 python-utils-r1
+EAPI=7
+PYTHON_COMPAT=(python3_{6,7,8})
+inherit vim-plugin git-r3 python-single-r1 python-utils-r1
 
 DESCRIPTION="Jedi Python autocompletion with VIM"
 HOMEPAGE="https://github.com/davidhalter/jedi-vim"
 SRC_URI=""
-EGIT_REPO_URI="git://github.com/davidhalter/${PN}-vim.git"
+EGIT_REPO_URI="https://github.com/davidhalter/${PN}-vim.git"
 
-LICENSE="LGPL-3+"
+LICENSE="MIT"
 KEYWORDS=""
-IUSE=""
+IUSE="test"
 
-RDEPEND="dev-python/jedi[${PYTHON_USEDEP}]"
+RDEPEND="
+	${PYTHON_DEPS}
+	$(python_gen_cond_dep 'dev-python/jedi[${PYTHON_MULTI_USEDEP}]')
+	app-editors/vim[python]"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
+
 src_prepare() {
-	python_copy_sources
+	eapply_user
 }
 
 src_install() {
