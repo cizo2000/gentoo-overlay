@@ -167,7 +167,7 @@ src_configure() {
 		--with-experimental-modules
 		--with-docdir=/usr/share/doc/${PF}
 		--with-logdir=/var/log/radius
-		--with-rlm-python-bin=/usr/bin/python3.6
+		--with-rlm-python-bin=/usr/bin/python2.7
 		$(use_enable debug developer)
 		$(use_with ldap edir)
 		$(use_with ssl openssl)
