@@ -30,6 +30,7 @@ src_install() {
 
 	if use bundled-jdk; then
 		fperms -R a+x /opt/pycharm-community/jbr/bin/
+		fperms a+x /opt/pycharm-community/jbr/lib/{jcef_helper,libjcef.so}
 	else
 		rm -r "${D}"/opt/pycharm-community/jbr/ || die
 	fi
@@ -46,6 +47,7 @@ src_install() {
 pkg_postinst() {
 	xdg_pkg_postinst
 	gnome2_icon_cache_update
+
 }
 
 pkg_postrm() {
