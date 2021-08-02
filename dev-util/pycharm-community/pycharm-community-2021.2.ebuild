@@ -35,7 +35,7 @@ src_install() {
 		rm -r "${D}"/opt/pycharm-community/jbr/ || die
 	fi
 
-	fperms a+x /opt/${PN}/bin/{pycharm.sh,fsnotifier{,64},inspect.sh}
+	fperms a+x /opt/${PN}/bin/{pycharm.sh,fsnotifier,inspect.sh}
 
 	dosym ../../opt/${PN}/bin/pycharm.sh /usr/bin/${PN}
 	newicon bin/${MY_PN}.png ${PN}.png
