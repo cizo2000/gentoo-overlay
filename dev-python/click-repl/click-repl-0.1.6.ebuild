@@ -14,6 +14,9 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="dev-python/click"
+DEPEND="
+	dev-python/click
+	dev-python/prompt_toolkit
+	"
 RDEPEND="${DEPEND}"
 BDEPEND=""
