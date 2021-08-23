@@ -25,7 +25,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	<dev-python/kombu-6.0[${PYTHON_USEDEP}]
 	>=dev-python/kombu-5.0[${PYTHON_USEDEP}]
-	>=dev-python/billiard-3.6.0[${PYTHON_USEDEP}]
+	>=dev-python/billiard-3.6.4.0[${PYTHON_USEDEP}]
 	<dev-python/billiard-4.0.0[${PYTHON_USEDEP}]
 	dev-python/pytz[${PYTHON_USEDEP}]
 	dev-python/greenlet[${PYTHON_USEDEP}]
