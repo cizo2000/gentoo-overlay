@@ -4,7 +4,7 @@
 EAPI=7
 
 DISTUTILS_USE_SETUPTOOLS=rdepend
-PYTHON_COMPAT=( python3_{8..9} )
+PYTHON_COMPAT=(python3_{8..9})
 
 inherit bash-completion-r1 distutils-r1 optfeature
 
@@ -54,7 +54,7 @@ DEPEND="
 	)
 	doc? (
 		dev-python/docutils[${PYTHON_USEDEP}]
-		>=dev-python/sphinx_celery-2.0[$(python_gen_usedep 'python3*')]
+		>=dev-python/sphinx_celery-2.0[${PYTHON_USEDEP}]
 		dev-python/jinja[${PYTHON_USEDEP}]
 		dev-python/sqlalchemy[${PYTHON_USEDEP}]
 	)"
