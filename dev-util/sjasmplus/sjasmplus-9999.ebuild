@@ -2,11 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=7
 
 AUTOTOOLS_AUTORECONF="1"
 AUTOTOOLS_IN_SOURCE_BUILD="1"
-inherit git-r3 cmake-utils
+inherit git-r3 cmake
 
 DESCRIPTION="sjasmplus - Command-line cross-compiler of assembly language for Z80 CPU"
 HOMEPAGE="https://github.com/z00m128/sjasmplus/"
@@ -22,22 +22,23 @@ IUSE="+lua +system-lua"
 
 DEPEND="
 	>=dev-util/cmake-3.1.0
-	system-lua? ( ( >=dev-lang/lua-5.1.5 >=dev-lua/toluapp-1.0.93 ) )
+	system-lua? ( ( >=dev-lang/lua-5.4.2 ) )
 "
 RDEPEND="${DEPEND}"
 
 src_prepare() {
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_enable lua LUA)
-		$(cmake-utils_use system-lua SYSTEM_LUA)
+		-DENABLE_LUA="$(usex lua)"
+		-DSYSTEM_LUA="$(usex system-lua)"
 	)
-	cmake-utils_src_configure
+
+	cmake_src_configure
 }
 
 src_install() {
-	cmake-utils_src_install
+	cmake_src_install
 }
