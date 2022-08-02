@@ -19,7 +19,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 # There are a number of other optional 'extras' which overlap with those of kombu, however
 # there has been no apparent expression of interest or demand by users for them. See requires.txt
-IUSE="doc examples test"
+IUSE="doc examples test -python3_10"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
