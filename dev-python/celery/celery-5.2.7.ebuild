@@ -19,10 +19,11 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 # There are a number of other optional 'extras' which overlap with those of kombu, however
 # there has been no apparent expression of interest or demand by users for them. See requires.txt
-IUSE="doc examples test -python3_10"
+IUSE="doc examples test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
+	<dev-python/kombu-6.0[${PYTHON_USEDEP}]
 	>=dev-python/kombu-5.0[${PYTHON_USEDEP}]
 	>=dev-python/billiard-3.6.4.0[${PYTHON_USEDEP}]
 	<dev-python/billiard-4.0.0[${PYTHON_USEDEP}]
