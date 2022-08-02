@@ -19,7 +19,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 # There are a number of other optional 'extras' which overlap with those of kombu, however
 # there has been no apparent expression of interest or demand by users for them. See requires.txt
-IUSE="doc examples test"
+IUSE="doc examples test docker"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -57,6 +57,9 @@ DEPEND="
 		>=dev-python/sphinx_celery-2.0[${PYTHON_USEDEP}]
 		dev-python/jinja[${PYTHON_USEDEP}]
 		dev-python/sqlalchemy[${PYTHON_USEDEP}]
+	)
+	docker? (
+		app-containers/docker
 	)"
 
 # testsuite needs it own source
@@ -89,8 +92,14 @@ python_test() {
 
 python_install_all() {
 	# Main celeryd init.d and conf.d
-	newinitd "${FILESDIR}/celery.initd-r2" celery
 	newconfd "${FILESDIR}/celery.confd-r2" celery
+
+	if use docker; then
+		newinitd "${FILESDIR}/celery.initd-r2-docker" celery
+	else
+		newinitd "${FILESDIR}/celery.initd-r2" celery
+	fi
+
 
 	if use examples; then
 		docompress -x "/usr/share/doc/${PF}/examples"
