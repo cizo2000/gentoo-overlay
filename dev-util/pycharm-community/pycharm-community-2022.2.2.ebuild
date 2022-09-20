@@ -30,7 +30,7 @@ src_install() {
 
 	if use bundled-jdk; then
 		fperms -R a+x /opt/pycharm-community/jbr/bin/
-		fperms a+x /opt/pycharm-community/jbr/lib/{jcef_helper,libjcef.so}
+		fperms a+x /opt/pycharm-community/jbr/lib/{jcef_helper,libjcef.so,jspawnhelper}
 	else
 		rm -r "${D}"/opt/pycharm-community/jbr/ || die
 	fi
