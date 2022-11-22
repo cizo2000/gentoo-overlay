@@ -2,15 +2,16 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=7
+EAPI=8
 
 AUTOTOOLS_AUTORECONF="1"
 AUTOTOOLS_IN_SOURCE_BUILD="1"
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION="sjasmplus - Command-line cross-compiler of assembly language for Z80 CPU"
 HOMEPAGE="https://github.com/z00m128/sjasmplus/"
-SRC_URI="https://github.com/z00m128/sjasmplus/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/z00m128/sjasmplus/releases/download/v${PV}/${P}-src.tar.xz -> ${P}.tar.xz"
+
 
 LICENSE="BSD-3-Clause"
 SLOT="0"
@@ -25,7 +26,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_prepare() {
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -33,9 +34,9 @@ src_configure() {
 		-DENABLE_LUA="$(usex lua)"
 		-DSYSTEM_LUA="$(usex system-lua)"
 	)
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 src_install() {
-	cmake-utils_src_install
+	cmake_src_install
 }
