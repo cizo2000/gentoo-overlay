@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>cizo2000@gmail.com</email>
+		<name>Pavol 'Cizo' Cizmarik</name>
+	</maintainer>
+	<maintainer type="project">
+		<email>zoom@speccy.cz</email>
+		<name>sjasmplus</name>
+	</maintainer>
+	<longdescription>
+		Command-line cross-compiler of assembly language for Z80 CPU.
+		Supports many ZX-Spectrum specific directives, has built-in Lua scripting engine and 3-pass design.
+	</longdescription>
+	<use>
+		<flag name="system-lua">Build app with dynamically linked Lua library</flag>
+	</use>
+	<upstream>
+		<bugs-to>https://github.com/z00m128/sjasmplus/issues</bugs-to>
+		<remote-id type="github">z00m128/sjasmplus</remote-id>
+		<changelog>https://github.com/z00m128/sjasmplus/releases</changelog>
+		<doc>http://z00m128.github.io/sjasmplus/</doc>
+	</upstream>
+</pkgmetadata>
+
