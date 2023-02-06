@@ -3,7 +3,8 @@
 # $Header: $
 
 EAPI=7
-PYTHON_COMPAT=(python3_{6,7,8})
+PYTHON_COMPAT=(python3_{7,8,9,10,11})
+
 inherit vim-plugin git-r3 python-single-r1 python-utils-r1
 
 DESCRIPTION="Jedi Python autocompletion with VIM"
@@ -16,8 +17,9 @@ KEYWORDS=""
 IUSE="test"
 
 RDEPEND="
-	${PYTHON_DEPS}
-	$(python_gen_cond_dep 'dev-python/jedi[${PYTHON_MULTI_USEDEP}]')
+	$(python_gen_cond_dep '
+		dev-python/jedi[${PYTHON_USEDEP}]
+	')
 	app-editors/vim[python]"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
