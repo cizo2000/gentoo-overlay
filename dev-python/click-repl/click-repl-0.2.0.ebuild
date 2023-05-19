@@ -16,7 +16,7 @@ KEYWORDS="~amd64 ~x86"
 
 DEPEND="
 	dev-python/click
-	dev-python/prompt_toolkit
+	dev-python/prompt-toolkit
 	"
 RDEPEND="${DEPEND}"
 BDEPEND=""
