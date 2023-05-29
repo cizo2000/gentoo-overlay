@@ -1,0 +1,12 @@
+diff -uNr a/src/modules/rlm_python3/rlm_python3.c b/src/modules/rlm_python3/rlm_python3.c
+--- a/src/modules/rlm_python3/rlm_python3.c	2021-10-07 21:46:04.000000000 +0200
++++ b/src/modules/rlm_python3/rlm_python3.c	2022-05-18 21:13:21.802170096 +0200
+@@ -1346,7 +1346,7 @@
+ module_t rlm_python3 = {
+ 	.magic		= RLM_MODULE_INIT,
+ 	.name		= "python3",
+-	.type		= RLM_TYPE_THREAD_UNSAFE,
++	.type		= RLM_TYPE_THREAD_SAFE,
+ 	.inst_size	= sizeof(rlm_python_t),
+ 	.config		= module_config,
+ 	.instantiate	= mod_instantiate,

@@ -78,6 +78,7 @@ QA_SONAME="usr/lib.*/libfreeradius-.*.so"
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.0.20-systemd-service.patch
 	"${FILESDIR}"/${PN}-3.0.25-rlm-python3.patch
+	"${FILESDIR}"/${PN}-3.0.25-rlm-python3-threadsafe.patch
 )
 
 pkg_setup() {

@@ -4,33 +4,23 @@ diff -uNr a/src/modules/rlm_python3/rlm_python3.c b/src/modules/rlm_python3/rlm_
 @@ -204,12 +204,12 @@
  		return;
  	}
- 
--	if (((pStr1 = PyObject_Str(pExcType)) != NULL) && 
+
+-	if (((pStr1 = PyObject_Str(pExcType)) != NULL) &&
 +	if (((pStr1 = PyObject_Str(pExcType)) != NULL) &&
  	    ((pStr2 = PyObject_Str(pExcValue)) != NULL)) {
  		ERROR("%s:%d, Exception type: %s, Exception value: %s", __func__, __LINE__, PyUnicode_AsUTF8(pStr1), PyUnicode_AsUTF8(pStr2));
  		Py_DECREF(pStr1);
  		Py_DECREF(pStr2);
--	} 
+-	}
 +	}
- 
+
  	if (pExcTraceback) {
  		PyObject *pRepr = PyObject_Repr(pExcTraceback);
 @@ -388,7 +388,7 @@
  		if (PyErr_Occurred()) {
  			python_error_log();
  		}
--		
+-
 +
  		return -1;
  	}
- 
-@@ -1346,7 +1346,7 @@
- module_t rlm_python3 = {
- 	.magic		= RLM_MODULE_INIT,
- 	.name		= "python3",
--	.type		= RLM_TYPE_THREAD_UNSAFE,
-+	.type		= RLM_TYPE_THREAD_SAFE,
- 	.inst_size	= sizeof(rlm_python_t),
- 	.config		= module_config,
- 	.instantiate	= mod_instantiate,
