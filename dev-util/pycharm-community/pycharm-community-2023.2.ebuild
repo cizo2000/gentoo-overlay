@@ -1,9 +1,9 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
-inherit gnome2-utils readme.gentoo-r1 xdg
+inherit desktop readme.gentoo-r1 wrapper xdg-utils xdg
 
 DESCRIPTION="Intelligent Python IDE with unique code assistance and analysis"
 HOMEPAGE="http://www.jetbrains.com/pycharm/"
@@ -28,6 +28,10 @@ src_install() {
 	insinto /opt/${PN}
 	doins -r *
 
+	rm -vrf "${S}"/lib/pty4j-native/linux/{aarch64,arm,mips64el,ppc64le,x86} || die
+	rm -vrf "${S}"/plugins/cwm-plugin/quiche-native/linux-{aarch64} || die
+	rm -vf "${S}"/plugins/python-ce/helpers/pydev/pydevd_attach_to_process/attach_linux_{aarch64,arm,mips64el,ppc64le,x86}.so
+
 	if use bundled-jdk; then
 		fperms -R a+x /opt/pycharm-community/jbr/bin/
 		fperms a+x /opt/pycharm-community/jbr/lib/{jcef_helper,libjcef.so,jspawnhelper}
@@ -37,7 +41,7 @@ src_install() {
 
 	fperms a+x /opt/${PN}/bin/{pycharm.sh,fsnotifier,inspect.sh}
 
-	dosym ../../opt/${PN}/bin/pycharm.sh /usr/bin/${PN}
+	make_wrapper "${PN}" "/opt/${PN}/bin/pycharm.sh"
 	newicon bin/${MY_PN}.png ${PN}.png
 	make_desktop_entry ${PN} ${PN} ${PN}
 
@@ -45,12 +49,10 @@ src_install() {
 }
 
 pkg_postinst() {
-	xdg_pkg_postinst
-	gnome2_icon_cache_update
+	xdg_icon_cache_update
 
 }
 
 pkg_postrm() {
-	xdg_pkg_postrm
-	gnome2_icon_cache_update
+	xdg_icon_cache_update
 }
