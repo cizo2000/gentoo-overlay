@@ -18,7 +18,7 @@
 EAPI=6
 K_TARBALL_SUFFIX="xz"
 
-inherit eutils toolchain-funcs flag-o-matic
+inherit toolchain-funcs flag-o-matic
 
 DESCRIPTION="A minimal libc subset for use with initramfs"
 HOMEPAGE="http://www.zytor.com/mailman/listinfo/klibc/ https://www.kernel.org/pub/linux/libs/klibc/"
