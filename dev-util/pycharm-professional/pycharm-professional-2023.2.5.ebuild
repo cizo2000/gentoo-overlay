@@ -31,6 +31,8 @@ RDEPEND="!bundled-jdk? ( >=virtual/jre-1.8 )
 	media-libs/mesa
 	net-print/cups
 	sys-apps/dbus
+	sys-process/audit
+	sys-libs/libselinux
 	sys-libs/zlib
 	x11-libs/libX11
 	x11-libs/libxcb
@@ -58,12 +60,12 @@ src_prepare() {
 	default
 	local remove_me=(
 		help/ReferenceCardForMac.pdf
-		plugins/remote-dev-server/selfcontained
-		plugins/python/helpers/pydev/pydevd_attach_to_process/attach_linux_x86.so
-		plugins/python/helpers/pydev/pydevd_attach_to_process/attach_linux_amd64.so
+		# plugins/remote-dev-server/selfcontained
+		# plugins/python/helpers/pydev/pydevd_attach_to_process/attach_linux_x86.so
+		# plugins/python/helpers/pydev/pydevd_attach_to_process/attach_linux_amd64.so
 		plugins/python/helpers/pydev/pydevd_attach_to_process/attach_linux_aarch64.so
 		plugins/cwm-plugin/quiche-native/linux-aarch64
-		plugins/tailwindcss  # Relies on masked package sys-libs/musl
+		plugins/tailwindcss/server/node.napi.musl*
 )
 
 	rm -rv "${remove_me[@]}" || die
@@ -96,7 +98,8 @@ src_install() {
 		rm -r "${jre_dir}" || die
 	fi
 
-	fperms 755 ${dir}/bin/{format.sh,fsnotifier,inspect.sh,ltedit.sh,pycharm.sh,restart.py}
+	fperms 755 "${dir}"/bin/{format.sh,fsnotifier,inspect.sh,ltedit.sh,pycharm.sh,restart.py,remote-dev-server.sh}
+	fperms 755 "${dir}"/plugins/remote-dev-server/bin/launcher.sh
 
 	fperms 755 "${dir}"/"${jre_dir}"/bin/{java,javac,javadoc,jcmd,jdb,jfr,jhsdb,jinfo,jmap,jps,jrunscript,jstack,jstat,keytool,rmiregistry,serialver}
 	fperms 755 "${dir}"/"${jre_dir}"/lib/{chrome-sandbox,jcef_helper,jexec,jspawnhelper}
