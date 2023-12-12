@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=7
 
-PYTHON_COMPAT=( python2_7 python3_7 )
+PYTHON_COMPAT=( python3_{7,8,9,10,11,12} )
 
 inherit git-r3 distutils-r1
 
@@ -19,4 +19,5 @@ IUSE=""
 
 DEPEND=""
 RDEPEND="
-	>=dev-python/pyserial-2.7"
+	>=dev-python/pyserial-2.7
+"
