@@ -65,7 +65,7 @@ src_prepare() {
 		# plugins/python/helpers/pydev/pydevd_attach_to_process/attach_linux_amd64.so
 		plugins/python/helpers/pydev/pydevd_attach_to_process/attach_linux_aarch64.so
 		plugins/cwm-plugin/quiche-native/linux-aarch64
-		plugins/tailwindcss/server/node.napi.musl*
+		# plugins/tailwindcss/server/node.napi.musl*
 )
 
 	rm -rv "${remove_me[@]}" || die
@@ -98,7 +98,7 @@ src_install() {
 		rm -r "${jre_dir}" || die
 	fi
 
-	fperms 755 "${dir}"/bin/{format.sh,fsnotifier,inspect.sh,ltedit.sh,pycharm.sh,restart.py,remote-dev-server.sh}
+	fperms 755 "${dir}"/bin/{format.sh,fsnotifier,inspect.sh,ltedit.sh,pycharm.sh,remote-dev-server.sh}
 	fperms 755 "${dir}"/plugins/remote-dev-server/bin/launcher.sh
 
 	fperms 755 "${dir}"/"${jre_dir}"/bin/{java,javac,javadoc,jcmd,jdb,jfr,jhsdb,jinfo,jmap,jps,jrunscript,jstack,jstat,keytool,rmiregistry,serialver}
