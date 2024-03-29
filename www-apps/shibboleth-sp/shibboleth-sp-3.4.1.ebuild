@@ -43,7 +43,7 @@ src_configure() {
 	    $(use_enable odbc) \
 	    $(use_enable ads adfs) \
 	    --enable-apache-24 \
-	    --with-apxs24=/usr/sbin/apxs2 \
+	    --with-apxs24=/usr/bin/apxs \
 	    --localstatedir=/var \
 	    || die "Configuration failed."
 }
