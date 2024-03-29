@@ -18,4 +18,4 @@ KEYWORDS="~amd64"
 
 DEPEND=""
 RDEPEND="${DEPEND}"
-BDEPEND=">=app-doc/doxygen-1.9.5"
+BDEPEND=">=app-text/doxygen-1.9.5"
