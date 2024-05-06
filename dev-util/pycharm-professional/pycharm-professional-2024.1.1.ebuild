@@ -58,17 +58,17 @@ QA_PREBUILT="opt/${P}/*"
 
 src_prepare() {
 	default
-	local remove_me=(
-		help/ReferenceCardForMac.pdf
+	#local remove_me=(
+		#help/ReferenceCardForMac.pdf
 		# plugins/remote-dev-server/selfcontained
 		# plugins/python/helpers/pydev/pydevd_attach_to_process/attach_linux_x86.so
 		# plugins/python/helpers/pydev/pydevd_attach_to_process/attach_linux_amd64.so
-		plugins/python/helpers/pydev/pydevd_attach_to_process/attach_linux_aarch64.so
-		plugins/cwm-plugin/quiche-native/linux-aarch64
+		# plugins/python/helpers/pydev/pydevd_attach_to_process/attach_linux_aarch64.so
+		# plugins/cwm-plugin/quiche-native/linux-aarch64
 		# plugins/tailwindcss/server/node.napi.musl*
-)
+#)
 
-	rm -rv "${remove_me[@]}" || die
+	#rm -rv "${remove_me[@]}" || die
 
 	sed -i \
 		-e "\$a\\\\" \
