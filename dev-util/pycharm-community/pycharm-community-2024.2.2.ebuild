@@ -39,7 +39,8 @@ src_install() {
 		rm -r "${D}"/opt/pycharm-community/jbr/ || die
 	fi
 
-	fperms a+x /opt/${PN}/bin/{pycharm.sh,fsnotifier,inspect.sh}
+	fperms a+x /opt/${PN}/bin/{pycharm.sh,fsnotifier,inspect.sh,format.sh,jetbrains_client.sh,ltedit.sh}
+	fperms a+x /opt/${PN}/bin/{pycharm,repair,restarter}
 
 	make_wrapper "${PN}" "/opt/${PN}/bin/pycharm.sh"
 	newicon bin/${MY_PN}.png ${PN}.png
