@@ -98,7 +98,7 @@ src_install() {
 		rm -r "${jre_dir}" || die
 	fi
 
-	fperms 755 "${dir}"/bin/{format.sh,fsnotifier,inspect.sh,ltedit.sh,pycharm.sh,remote-dev-server.sh,pycharm,remote-dev-server,restarter,repair,jetbrains_client.sh}
+	fperms 755 "${dir}"/bin/{format.sh,fsnotifier,inspect.sh,ltedit.sh,pycharm.sh,remote-dev-server.sh,pycharm,remote-dev-server,restarter,jetbrains_client.sh}
 	fperms 755 "${dir}"/plugins/remote-dev-server/bin/launcher.sh
 
 	fperms 755 "${dir}"/"${jre_dir}"/bin/{java,javac,javadoc,jcmd,jdb,jfr,jhsdb,jinfo,jmap,jps,jrunscript,jstack,jstat,keytool,rmiregistry,serialver}
