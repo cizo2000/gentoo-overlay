@@ -5,11 +5,9 @@ EAPI=8
 
 inherit desktop readme.gentoo-r1 wrapper xdg-utils
 
-MY_PN=${PN/-professional/}
 DESCRIPTION="Intelligent Python IDE with unique code assistance and analysis"
 HOMEPAGE="https://www.jetbrains.com/pycharm/"
 SRC_URI="https://download.jetbrains.com/python/${P}.tar.gz"
-S="${WORKDIR}/${MY_PN}-${PV}"
 
 LICENSE="PyCharm_Academic PyCharm_Classroom PyCharm PyCharm_OpenSource PyCharm_Preview"
 SLOT="0"
@@ -105,7 +103,7 @@ src_install() {
 	fperms 755 "${dir}"/"${jre_dir}"/lib/{chrome-sandbox,jcef_helper,jexec,jspawnhelper}
 
 	make_wrapper ${PN} ${dir}/bin/pycharm.sh
-	newicon bin/${MY_PN}.png ${PN}.png
+	newicon bin/${PN}.png ${PN}.png
 	make_desktop_entry ${PN} ${PN} ${PN}
 
 	readme.gentoo_create_doc
