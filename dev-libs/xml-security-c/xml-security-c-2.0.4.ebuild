@@ -5,7 +5,8 @@ EAPI=8
 
 DESCRIPTION="Apache C++ XML security libraries"
 HOMEPAGE="https://santuario.apache.org"
-SRC_URI="mirror://apache/santuario/c-library/${P}.tar.gz"
+
+SRC_URI="https://archive.apache.org/dist/santuario/c-library/${P}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -20,6 +21,13 @@ DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 DOCS=( {CHANGELOG,NOTICE}.txt )
+
+inherit autotools
+
+src_prepare() {
+	default
+	eautoreconf
+}
 
 src_configure() {
 	econf \
