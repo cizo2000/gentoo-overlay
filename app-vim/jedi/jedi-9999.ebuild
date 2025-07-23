@@ -2,8 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=7
-PYTHON_COMPAT=(python3_{7,8,9,10,11})
+EAPI=8
+PYTHON_COMPAT=(python3_{11,12,13})
 
 inherit vim-plugin git-r3 python-single-r1 python-utils-r1
 
