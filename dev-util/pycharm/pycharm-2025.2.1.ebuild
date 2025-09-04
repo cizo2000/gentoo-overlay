@@ -100,7 +100,7 @@ src_install() {
 	fperms 755 "${dir}"/plugins/remote-dev-server/bin/launcher.sh
 
 	fperms 755 "${dir}"/"${jre_dir}"/bin/{java,javac,javadoc,jcmd,jdb,jfr,jhsdb,jinfo,jmap,jps,jrunscript,jstack,jstat,keytool,rmiregistry,serialver}
-	fperms 755 "${dir}"/"${jre_dir}"/lib/{chrome-sandbox,jcef_helper,jexec,jspawnhelper}
+	fperms 755 "${dir}"/"${jre_dir}"/lib/{chrome-sandbox,jcef_helper,jexec,jspawnhelper,cef_server}
 
 	make_wrapper ${PN} ${dir}/bin/pycharm.sh
 	newicon bin/${PN}.png ${PN}.png
