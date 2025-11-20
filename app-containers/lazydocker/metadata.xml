@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>cizo2000@gmail.com</email>
+    <name>Pavol Cizmarik</name>
+  </maintainer>
+<longdescription lang="en">
+A simple terminal UI for docker commands, written in Go with the gocui library.
+</longdescription>
+<upstream>
+  <remote-id type="github">jesseduffield/lazydocker</remote-id>
+</upstream>
+</pkgmetadata>
