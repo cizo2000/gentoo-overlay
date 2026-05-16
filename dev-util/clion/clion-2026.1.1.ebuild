@@ -16,7 +16,7 @@ LICENSE="|| ( IDEA IDEA_Academic IDEA_Classroom IDEA_OpenSource IDEA_Personal )
 	EPL-1.0 EPL-2.0 GPL-2 GPL-2-with-classpath-exception GPL-3 ISC JDOM
 	LGPL-2.1+ LGPL-3 MIT MPL-1.0 MPL-1.1 OFL-1.1 public-domain PSF-2
 	UoI-NCSA ZLIB"
-SLOT="0/2025"
+SLOT="0/2026"
 KEYWORDS="~amd64"
 RESTRICT="bindist mirror"
 
@@ -66,12 +66,10 @@ RDEPEND="
 QA_PREBUILT="opt/${PN}/*"
 
 src_prepare() {
-	if use amd64; then
-		my_arch_suffix=x64
-		my_arch_radler=x64
-		local other_arch_amd64_aarch64=aarch64
-		local other_arch_radler=arm64
-	fi
+	my_arch_suffix=x64
+	my_arch_radler=x64
+	local other_arch_amd64_aarch64=aarch64
+	local other_arch_radler=arm64
 	tc-export OBJCOPY
 	default
 
@@ -88,7 +86,9 @@ src_prepare() {
 	remove_me+=(
 		lib/async-profiler/${other_arch_amd64_aarch64}
 		plugins/clion-radler/DotFiles/linux-${other_arch_radler}
-		plugins/clion-radler/dotCommon/DotFiles/linux-${other_arch_radler}
+		plugins/clion-radler/DotFiles/runtimes/linux-${other_arch_radler}/native/
+		plugins/clion-radler/DotFiles/runtimes/linux-$(usex amd64 arm amd64)/native/
+		plugins/clion-radler/DotFiles/runtimes/linux-musl-$(usex amd64 arm amd64)/native/
 		plugins/clion-radler/dotTrace.dotMemory/DotFiles/linux-${other_arch_radler}
 		plugins/nativeDebug-plugin/bin/lldb/linux/${other_arch_amd64_aarch64}
 		plugins/python-ce/helpers/pydev/pydevd_attach_to_process/attach_linux_${other_arch_amd64_aarch64}.so
@@ -107,6 +107,8 @@ src_prepare() {
 		"plugins/clion-radler/DotFiles/linux-musl-${other_arch_radler}/jb_zip_unarchiver"
 		"plugins/clion-radler/DotFiles/linux-arm/jb_zip_unarchiver"
 		"plugins/clion-radler/DotFiles/linux-musl-arm/jb_zip_unarchiver"
+		"plugins/clion-radler/DotFiles/runtimes/linux-musl-${other_arch_radler}/native/libdbgshim.so"
+		"plugins/clion-radler/DotFiles/runtimes/linux-arm/native/"
 		"plugins/gateway-plugin/lib/remote-dev-workers/remote-dev-worker-linux-$(usex amd64 arm64 amd64)"
 	)
 	# removing debug symbols and relocating debug files as per #876295
