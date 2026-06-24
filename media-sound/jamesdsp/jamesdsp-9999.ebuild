@@ -31,10 +31,6 @@ DEPEND="
 	app-arch/libarchive
 	>=dev-cpp/glibmm-2.4:2
 	>=dev-libs/glib-2.0
-	dev-qt/qtgui
-	dev-qt/qtnetwork
-	dev-qt/qtsvg
-	dev-qt/qtxml
 "
 
 RDEPEND="
