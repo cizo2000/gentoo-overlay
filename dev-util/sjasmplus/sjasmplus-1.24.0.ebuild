@@ -24,11 +24,11 @@ fi
 
 LICENSE="BSD"
 SLOT="0"
-IUSE="+lua +system-lua"
+IUSE="+lua system-lua"
 
 REQUIRED_USE="system-lua? ( lua )"
 
-DEPEND="system-lua? ( ( >=dev-lang/lua-5.4.2 ) )"
+DEPEND="system-lua? ( ( >=dev-lang/lua-5.5.0 ) )"
 RDEPEND="${DEPEND}"
 
 src_prepare() {
