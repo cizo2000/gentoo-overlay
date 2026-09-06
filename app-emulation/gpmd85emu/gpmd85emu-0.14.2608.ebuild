@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools
+inherit autotools desktop xdg
 
 DESCRIPTION="Open-source emulator of the Tesla PMD 85, an 8-bit personal microcomputer"
 HOMEPAGE="https://github.com/mborik/GPMD85Emulator"
@@ -25,9 +25,7 @@ DEPEND="
 "
 
 BDEPEND="
-	sys-devel/autoconf
-	sys-devel/automake
-	sys-devel/libtool
+	${RDEPEND}
 "
 
 S="${WORKDIR}/GPMD85Emulator-${PV}"
@@ -57,6 +55,12 @@ src_install() {
 	# Install documentation
 	einstalldocs
 
+	# Create menu and icon
+	if [[ -f "res/GPMD85emu.desktop"  ]] && [[ -f "res/icon.png" ]]; then
+		domenu res/GPMD85emu.desktop
+		newicon res/icon.png GPMD85emu.png
+	fi
+
 	# Install man pages if they exist
 	if [[ -f "GPMD85emu.1" ]]; then
 		doman GPMD85emu.1
@@ -64,8 +68,14 @@ src_install() {
 }
 
 pkg_postinst() {
+	xdg_desktop_database_update
+
 	einfo "GPMD85Emulator has been installed successfully!"
 	einfo "To launch the emulator, run: GPMD85emu"
 	einfo ""
 	einfo "For command-line options, use: GPMD85emu --help"
+}
+
+pkg_postrm() {
+	xdg_desktop_database_update
 }
