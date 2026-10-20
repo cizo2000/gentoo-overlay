@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools git-r3 desktop xdg
+inherit cmake git-r3 desktop xdg
 
 DESCRIPTION="Open-source emulator of the Tesla PMD 85, an 8-bit personal microcomputer"
 HOMEPAGE="https://github.com/mborik/GPMD85Emulator"
@@ -22,11 +22,10 @@ RDEPEND="
 
 DEPEND="
 	${RDEPEND}
-	virtual/pkgconfig
 "
 
 BDEPEND="
-	${RDEPEND}
+	virtual/pkgconfig
 "
 
 src_unpack() {
@@ -39,24 +38,24 @@ src_prepare() {
 	# Initialize and update git submodules
 	git -C "${S}" submodule update --init --recursive
 
-	# Generate configuration scripts from configure.ac
-	eautoreconf -i
+	cmake_src_prepare
 }
 
 src_configure() {
-	local myeconfargs=(
-		$(use_enable debug)
+	local mycmakeargs=(
+		-DCMAKE_BUILD_TYPE=$(usex debug Debug Release)
+		-DINSTALLED_RESOURCES=ON
 	)
 
-	econf "${myeconfargs[@]}"
+	cmake_src_configure
 }
 
 src_compile() {
-	emake
+	cmake_src_compile
 }
 
 src_install() {
-	emake DESTDIR="${D}" install
+	cmake_src_install
 
 	# Install documentation
 	einstalldocs

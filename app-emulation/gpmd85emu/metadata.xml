@@ -7,7 +7,7 @@
 		<description>Ebuild maintainer</description>
 	</maintainer>
 	<upstream>
-		<maintainer type="person">
+		<maintainer>
 			<email>martin@borik.net</email>
 			<name>Martin Bórik</name>
 		</maintainer>
